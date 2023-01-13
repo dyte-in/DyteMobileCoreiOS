@@ -10,7 +10,5 @@ s.source = { :git => "https://github.com/dyte-in/DyteMobileCoreiOS.git", :tag =>
 s.vendored_frameworks = "DyteiOSCore.xcframework"
 s.platform = :ios
 s.swift_version = "5.0"
-s.dependency 'DyteiOSSocketIO'
-s.dependency 'mediasoup_ios_client'
 s.ios.deployment_target  = '11.0'
 end
