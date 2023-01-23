@@ -11,4 +11,8 @@ s.vendored_frameworks = "DyteiOSCore.xcframework"
 s.platform = :ios
 s.swift_version = "5.0"
 s.ios.deployment_target  = '11.0'
+s.dependency 'DyteiOSSocketIO'
+s.dependency 'mediasoup_ios_client'
+s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
