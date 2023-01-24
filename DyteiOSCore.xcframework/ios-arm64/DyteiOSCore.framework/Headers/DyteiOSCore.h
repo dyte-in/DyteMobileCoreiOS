@@ -432,7 +432,7 @@ __attribute__((swift_name("DyteParticipant")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DytePlugin")))
 @interface DOSCDytePlugin : DOSCBase
-- (instancetype)initWithId:(NSString *)id name:(NSString *)name description:(NSString *)description picture:(NSString *)picture private:(BOOL)private_ staggered:(BOOL)staggered baseURL:(NSString *)baseURL controllerContainer:(id<DOSCIControllerContainer>)controllerContainer __attribute__((swift_name("init(id:name:description:picture:private:staggered:baseURL:controllerContainer:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id name:(NSString *)name description:(NSString *)description picture:(NSString *)picture isPrivate:(BOOL)isPrivate staggered:(BOOL)staggered baseURL:(NSString *)baseURL controllerContainer:(id<DOSCIControllerContainer>)controllerContainer __attribute__((swift_name("init(id:name:description:picture:isPrivate:staggered:baseURL:controllerContainer:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) DOSCDytePluginCompanion *companion __attribute__((swift_name("companion")));
 - (DOSCDyteActionResult *)activate __attribute__((swift_name("activate()")));
 - (DOSCDyteActionResult *)deactivate __attribute__((swift_name("deactivate()")));
@@ -444,9 +444,9 @@ __attribute__((swift_name("DytePlugin")))
 @property NSString * _Nullable enabledBy __attribute__((swift_name("enabledBy")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
 @property (readonly) BOOL isActive __attribute__((swift_name("isActive")));
+@property (readonly) BOOL isPrivate __attribute__((swift_name("isPrivate")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
 @property (readonly) NSString *picture __attribute__((swift_name("picture")));
-@property (readonly, getter=private) BOOL private_ __attribute__((swift_name("private_")));
 @property (readonly) BOOL staggered __attribute__((swift_name("staggered")));
 @end;
 
