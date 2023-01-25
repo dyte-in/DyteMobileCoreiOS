@@ -304,11 +304,11 @@ __attribute__((swift_name("DyteChat")))
 
 __attribute__((swift_name("DyteChatMessage")))
 @interface DOSCDyteChatMessage : DOSCBase
-- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId type:(DOSCDyteMessageType *)type time:(DOSCLong * _Nullable)time __attribute__((swift_name("init(userId:displayName:read:pluginId:type:time:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId type:(DOSCDyteMessageType *)type time:(NSString *)time __attribute__((swift_name("init(userId:displayName:read:pluginId:type:time:)"))) __attribute__((objc_designated_initializer));
 @property (readonly) NSString *displayName __attribute__((swift_name("displayName")));
 @property (readonly) NSString * _Nullable pluginId __attribute__((swift_name("pluginId")));
 @property (readonly) BOOL read __attribute__((swift_name("read")));
-@property (readonly) DOSCLong * _Nullable time __attribute__((swift_name("time")));
+@property (readonly) NSString *time __attribute__((swift_name("time")));
 @property (readonly) DOSCDyteMessageType *type __attribute__((swift_name("type")));
 @property (readonly) NSString *userId __attribute__((swift_name("userId")));
 @end;
@@ -316,8 +316,8 @@ __attribute__((swift_name("DyteChatMessage")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DyteFileMessage")))
 @interface DOSCDyteFileMessage : DOSCDyteChatMessage
-- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId name:(NSString *)name fileUri:(NSString * _Nullable)fileUri time:(int64_t)time __attribute__((swift_name("init(userId:displayName:read:pluginId:name:fileUri:time:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId type:(DOSCDyteMessageType *)type time:(DOSCLong * _Nullable)time __attribute__((swift_name("init(userId:displayName:read:pluginId:type:time:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId name:(NSString *)name fileUri:(NSString * _Nullable)fileUri time:(NSString *)time __attribute__((swift_name("init(userId:displayName:read:pluginId:name:fileUri:time:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId type:(DOSCDyteMessageType *)type time:(NSString *)time __attribute__((swift_name("init(userId:displayName:read:pluginId:type:time:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (readonly) NSString * _Nullable fileUri __attribute__((swift_name("fileUri")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
 @end;
@@ -325,8 +325,8 @@ __attribute__((swift_name("DyteFileMessage")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DyteImageMessage")))
 @interface DOSCDyteImageMessage : DOSCDyteChatMessage
-- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId link:(NSString *)link fileUri:(NSString * _Nullable)fileUri fileName:(NSString * _Nullable)fileName time:(DOSCLong * _Nullable)time __attribute__((swift_name("init(userId:displayName:read:pluginId:link:fileUri:fileName:time:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId type:(DOSCDyteMessageType *)type time:(DOSCLong * _Nullable)time __attribute__((swift_name("init(userId:displayName:read:pluginId:type:time:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId link:(NSString *)link fileUri:(NSString * _Nullable)fileUri fileName:(NSString * _Nullable)fileName time:(NSString *)time __attribute__((swift_name("init(userId:displayName:read:pluginId:link:fileUri:fileName:time:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId type:(DOSCDyteMessageType *)type time:(NSString *)time __attribute__((swift_name("init(userId:displayName:read:pluginId:type:time:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (readonly) NSString * _Nullable fileName __attribute__((swift_name("fileName")));
 @property (readonly) NSString * _Nullable fileUri __attribute__((swift_name("fileUri")));
 @property (readonly) NSString *link __attribute__((swift_name("link")));
@@ -606,8 +606,8 @@ __attribute__((swift_name("DyteSelfParticipant")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DyteTextMessage")))
 @interface DOSCDyteTextMessage : DOSCDyteChatMessage
-- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId message:(NSString *)message time:(DOSCLong * _Nullable)time __attribute__((swift_name("init(userId:displayName:read:pluginId:message:time:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId type:(DOSCDyteMessageType *)type time:(DOSCLong * _Nullable)time __attribute__((swift_name("init(userId:displayName:read:pluginId:type:time:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId message:(NSString *)message time:(NSString *)time __attribute__((swift_name("init(userId:displayName:read:pluginId:message:time:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUserId:(NSString *)userId displayName:(NSString *)displayName read:(BOOL)read pluginId:(NSString * _Nullable)pluginId type:(DOSCDyteMessageType *)type time:(NSString *)time __attribute__((swift_name("init(userId:displayName:read:pluginId:type:time:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (readonly) NSString *message __attribute__((swift_name("message")));
 @end;
 
@@ -6489,6 +6489,7 @@ __attribute__((swift_name("IDytePlatformUtils")))
 - (NSString *)getOsName __attribute__((swift_name("getOsName()")));
 - (NSString *)getOsVersion __attribute__((swift_name("getOsVersion()")));
 - (NSString *)getUrlEncodedStringStringToEncode:(NSString *)stringToEncode __attribute__((swift_name("getUrlEncodedString(stringToEncode:)")));
+- (NSString *)getUserDisplayableTimeTime:(int64_t)time __attribute__((swift_name("getUserDisplayableTime(time:)")));
 - (NSString *)getUtcTimeNow __attribute__((swift_name("getUtcTimeNow()")));
 - (NSString *)getUuid __attribute__((swift_name("getUuid()")));
 - (void)listenForCrashes __attribute__((swift_name("listenForCrashes()")));
@@ -6512,6 +6513,7 @@ __attribute__((swift_name("DyteIOSPlatform")))
 - (NSString *)getOsName __attribute__((swift_name("getOsName()")));
 - (NSString *)getOsVersion __attribute__((swift_name("getOsVersion()")));
 - (NSString *)getUrlEncodedStringStringToEncode:(NSString *)stringToEncode __attribute__((swift_name("getUrlEncodedString(stringToEncode:)")));
+- (NSString *)getUserDisplayableTimeTime:(int64_t)time __attribute__((swift_name("getUserDisplayableTime(time:)")));
 - (NSString *)getUtcTimeNow __attribute__((swift_name("getUtcTimeNow()")));
 - (NSString *)getUuid __attribute__((swift_name("getUuid()")));
 - (void)listenForCrashes __attribute__((swift_name("listenForCrashes()")));
