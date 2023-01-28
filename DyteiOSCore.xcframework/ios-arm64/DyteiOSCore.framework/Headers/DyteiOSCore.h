@@ -625,6 +625,7 @@ __attribute__((swift_name("DyteSelfParticipant")))
 @property NSString *name __attribute__((swift_name("name")));
 @property (readonly) DOSCParticipantPermissions *permissions __attribute__((swift_name("permissions")));
 @property (readonly) NSString * _Nullable picture __attribute__((swift_name("picture")));
+@property (readonly) BOOL roomJoined __attribute__((swift_name("roomJoined")));
 @property (readonly) NSString *userId __attribute__((swift_name("userId")));
 @property (readonly) DOSCWaitListStatus *waitListStatus __attribute__((swift_name("waitListStatus")));
 @end;
@@ -1643,6 +1644,7 @@ __attribute__((swift_name("ISelfController")))
 - (void)onVideoEnabledVideoProducerId:(NSString *)videoProducerId __attribute__((swift_name("onVideoEnabled(videoProducerId:)")));
 - (void)setDeviceDyteAndroidDevice:(DOSCDyteAudioDevice *)dyteAndroidDevice __attribute__((swift_name("setDevice(dyteAndroidDevice:)")));
 - (void)setDeviceDye:(DOSCDyteVideoDevice *)dye __attribute__((swift_name("setDevice(dye:)")));
+@property (readonly) BOOL roomJoined __attribute__((swift_name("roomJoined")));
 @end;
 
 __attribute__((swift_name("ISocketController")))
