@@ -1270,7 +1270,7 @@ __attribute__((swift_name("IParticipantController")))
 @required
 - (DOSCGridInfo *)getGridInfo __attribute__((swift_name("getGridInfo()")));
 - (UIView *)getScreenShareViewDyteMeetingParticipant:(DOSCDyteMeetingParticipant *)dyteMeetingParticipant __attribute__((swift_name("getScreenShareView(dyteMeetingParticipant:)")));
-- (UIView *)getVideoViewDyteMeetingParticipant:(DOSCDyteMeetingParticipant *)dyteMeetingParticipant __attribute__((swift_name("getVideoView(dyteMeetingParticipant:)")));
+- (UIView * _Nullable)getVideoViewDyteMeetingParticipant:(DOSCDyteMeetingParticipant *)dyteMeetingParticipant __attribute__((swift_name("getVideoView(dyteMeetingParticipant:)")));
 - (void)handleRoomJoinedWebSocketJoinRoomModel:(DOSCWebSocketJoinRoomModel *)webSocketJoinRoomModel __attribute__((swift_name("handleRoomJoined(webSocketJoinRoomModel:)")));
 - (void)handleRoomStateWebSocketRoomStateModel:(DOSCWebSocketRoomStateModel *)webSocketRoomStateModel __attribute__((swift_name("handleRoomState(webSocketRoomStateModel:)")));
 - (void)onActiveSpeakerId:(NSString *)id __attribute__((swift_name("onActiveSpeaker(id:)")));
@@ -7715,6 +7715,8 @@ __attribute__((swift_name("DyteDataUpdateListener")))
 @protocol DOSCDyteDataUpdateListener
 @required
 - (void)onMetaUpdateRoomName:(NSString *)roomName meetingTitle:(NSString *)meetingTitle meetingStartedTimestamp:(NSString *)meetingStartedTimestamp roomType:(NSString *)roomType __attribute__((swift_name("onMetaUpdate(roomName:meetingTitle:meetingStartedTimestamp:roomType:)")));
+- (void)onPluginsUpdatesPlugins:(NSArray<DOSCDytePlugin *> *)plugins __attribute__((swift_name("onPluginsUpdates(plugins:)")));
+- (void)onScreenShareUpdateScreenShares:(NSArray<DOSCDyteMeetingParticipant *> *)screenShares __attribute__((swift_name("onScreenShareUpdate(screenShares:)")));
 - (void)onSelfPermissionsUpdatePermission:(DOSCSelfPermissions *)permission __attribute__((swift_name("onSelfPermissionsUpdate(permission:)")));
 @end
 
@@ -7758,7 +7760,7 @@ __attribute__((swift_name("DyteParticipantEventsListener")))
 - (void)onParticipantJoinParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("onParticipantJoin(participant:)")));
 - (void)onParticipantLeaveParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("onParticipantLeave(participant:)")));
 - (void)onParticipantPinnedParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("onParticipantPinned(participant:)")));
-- (void)onParticipantUnpinned __attribute__((swift_name("onParticipantUnpinned()")));
+- (void)onParticipantUnpinnedParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("onParticipantUnpinned(participant:)")));
 - (void)onScreenShareEndedParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("onScreenShareEnded(participant:)")));
 - (void)onScreenShareStartedParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("onScreenShareStarted(participant:)")));
 - (void)onScreenSharesUpdated __attribute__((swift_name("onScreenSharesUpdated()")));
@@ -7948,7 +7950,7 @@ __attribute__((swift_name("IDyteVideoUtils")))
 - (void)destroyAll __attribute__((swift_name("destroyAll()")));
 - (void)destroyViewParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("destroyView(participant:)")));
 - (UIView *)getScreenShareViewParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("getScreenShareView(participant:)")));
-- (UIView *)getVideoViewParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("getVideoView(participant:)")));
+- (UIView * _Nullable)getVideoViewParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("getVideoView(participant:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -7959,7 +7961,7 @@ __attribute__((swift_name("DyteIOSVideoUtils")))
 - (void)destroyAll __attribute__((swift_name("destroyAll()")));
 - (void)destroyViewParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("destroyView(participant:)")));
 - (UIView *)getScreenShareViewParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("getScreenShareView(participant:)")));
-- (UIView *)getVideoViewParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("getVideoView(participant:)")));
+- (UIView * _Nullable)getVideoViewParticipant:(DOSCDyteMeetingParticipant *)participant __attribute__((swift_name("getVideoView(participant:)")));
 @end
 
 __attribute__((swift_name("IDyteWebView")))
