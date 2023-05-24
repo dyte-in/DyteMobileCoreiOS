@@ -2233,12 +2233,7 @@ __attribute__((swift_name("DyteLog.Companion")))
 __attribute__((swift_name("ILoggerController")))
 @protocol DOSCILoggerController
 @required
-
-/**
- * @note This method converts instances of CancellationException to errors.
- * Other uncaught Kotlin exceptions are fatal.
-*/
-- (void)pushAllNowWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("pushAllNow(completionHandler:)")));
+- (void)pushAllNow __attribute__((swift_name("pushAllNow()")));
 - (void)setPostInitInfoOrganizationId:(NSString *)organizationId roomName:(NSString *)roomName __attribute__((swift_name("setPostInitInfo(organizationId:roomName:)")));
 - (void)traceErrorMessage:(NSString *)message __attribute__((swift_name("traceError(message:)")));
 - (void)traceLogMessage:(NSString *)message __attribute__((swift_name("traceLog(message:)")));
