@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "DyteiOSCore"
-s.version      = "0.4.3"
+s.version      = "0.4.5"
 s.summary      = "Beta release for DyteiOSCore SDK which provides Audio/Video calling without UI"
 s.description  = "Logically separate the responsibility of video calling logic and UI. This means decoupling, speed, performance, and control over your RTC!"
 s.homepage     = "https://dyte.io/"
