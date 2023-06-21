@@ -21,7 +21,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(
                     name: "DyteiOSCore",
-                    url: "https://github.com/dyte-in/DyteMobileCoreiOS/archive/refs/tags/0.4.6.zip",
+                    url: "https://github.com/dyte-in/DyteMobileCoreiOS/archive/refs/tags/0.4.7.zip",
                     checksum: "90a9b575b7aee481378596c17885588865ece912c7b7d073e68a2948dbbac0bf"
                 )
     ]
