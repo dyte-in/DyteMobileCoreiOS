@@ -15,7 +15,7 @@ let package = Package(
         .binaryTarget(
             name: "DyteiOSCore",
             url: "https://github.com/dyte-in/DyteMobileCoreiOS/archive/refs/tags/0.4.7.zip",
-            checksum: "2d0b4777db3edd2036874e74b2e55e33b4adb73a2087c9609cc216124dd9892e"
+            checksum: "90a9b575b7aee481378596c17885588865ece912c7b7d073e68a2948dbbac0bf"
         ),
         .target(
             name: "DyteiOSCoreTargets",
