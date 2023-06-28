@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "DyteiOSCore", targets: ["DyteiOSCoreTargets"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/dyte-in/DyteiOSSocketIO.git", branch: "main"),
+        .package(url: "https://github.com/dyte-in/DyteiOSSocketIO.git", revision: "0.0.6"),
         .package(name: "WebRTC", url: "https://github.com/jitsi/webrtc.git", branch: "master"),
     ],
     targets: [
