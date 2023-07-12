@@ -1915,6 +1915,12 @@ __attribute__((swift_name("IWebinarController")))
 */
 - (void)rejectRequestToPresentWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("rejectRequestToPresent(completionHandler:)")));
 - (BOOL)shouldJoinStage __attribute__((swift_name("shouldJoinStage()")));
+
+/**
+ * @note This method converts instances of CancellationException to errors.
+ * Other uncaught Kotlin exceptions are fatal.
+*/
+- (void)withdrawRequestToJoinStageWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("withdrawRequestToJoinStage(completionHandler:)")));
 @property (readonly) NSArray<DOSCRequestToPresentParticipant *> *requestedParticipants __attribute__((swift_name("requestedParticipants")));
 @end
 
@@ -2356,6 +2362,7 @@ __attribute__((swift_name("DyteWebinar")))
 - (void)rejectRequestId:(NSString *)id __attribute__((swift_name("rejectRequest(id:)")));
 - (void)rejectRequestToPresent __attribute__((swift_name("rejectRequestToPresent()")));
 - (void)requestToJoin __attribute__((swift_name("requestToJoin()")));
+- (void)withdrawRequestToJoin __attribute__((swift_name("withdrawRequestToJoin()")));
 @property (readonly) NSArray<DOSCRequestToPresentParticipant *> *requestedParticipants __attribute__((swift_name("requestedParticipants")));
 @property (readonly) NSArray<DOSCDyteJoinedMeetingParticipant *> *viewers __attribute__((swift_name("viewers")));
 @end
@@ -3622,6 +3629,7 @@ __attribute__((swift_name("OutboundMeetingEventType")))
 @property (class, readonly) DOSCOutboundMeetingEventType *rejectPresentingRequest __attribute__((swift_name("rejectPresentingRequest")));
 @property (class, readonly) DOSCOutboundMeetingEventType *removePeerFromStage __attribute__((swift_name("removePeerFromStage")));
 @property (class, readonly) DOSCOutboundMeetingEventType *requestToJoinStage __attribute__((swift_name("requestToJoinStage")));
+@property (class, readonly) DOSCOutboundMeetingEventType *withdrawRequestToJoinStage __attribute__((swift_name("withdrawRequestToJoinStage")));
 @property (class, readonly) DOSCOutboundMeetingEventType *acceptWaitlistRequest __attribute__((swift_name("acceptWaitlistRequest")));
 @property (class, readonly) DOSCOutboundMeetingEventType *rejectWaitlistRequest __attribute__((swift_name("rejectWaitlistRequest")));
 @property (class, readonly) DOSCOutboundMeetingEventType *roomMessage __attribute__((swift_name("roomMessage")));
@@ -15606,7 +15614,7 @@ __attribute__((swift_name("Dyte_media_clientHiveTransport")))
  * @note This method converts instances of CancellationException to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)getStatsWithCompletionHandler:(void (^)(DOSCWebrtcRtcStatsReport * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getStats(completionHandler:)")));
+- (void)getStatsWithCompletionHandler:(void (^)(DOSCWebrtcRtcStatsReport * _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getStats(completionHandler:)")));
 
 /**
  * @note This method converts instances of CancellationException to errors.
@@ -15728,6 +15736,7 @@ __attribute__((swift_name("Dyte_media_clientHiveConsumer")))
 - (NSString *)getPeerId __attribute__((swift_name("getPeerId()")));
 - (NSString *)getProducerId __attribute__((swift_name("getProducerId()")));
 - (DOSCBoolean * _Nullable)getRemotelyPaused __attribute__((swift_name("getRemotelyPaused()")));
+- (DOSCLong * _Nullable)getSsrc __attribute__((swift_name("getSsrc()")));
 
 /**
  * @note This method converts instances of CancellationException to errors.
@@ -15847,6 +15856,7 @@ __attribute__((swift_name("Dyte_media_clientHiveProducer")))
 - (NSString *)getLocalId __attribute__((swift_name("getLocalId()")));
 - (DOSCLong * _Nullable)getMaxSpatialLayer __attribute__((swift_name("getMaxSpatialLayer()")));
 - (BOOL)getPaused __attribute__((swift_name("getPaused()")));
+- (DOSCLong * _Nullable)getSsrc __attribute__((swift_name("getSsrc()")));
 - (NSArray<DOSCWebrtcRtcStatsReport *> *)getStats __attribute__((swift_name("getStats()")));
 - (DOSCWebrtcMediaStreamTrack *)getTrack __attribute__((swift_name("getTrack()")));
 
@@ -16280,7 +16290,7 @@ __attribute__((swift_name("Dyte_media_clientHiveHandlerInterface")))
  * @note This method converts instances of CancellationException to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)getTransportStatsWithCompletionHandler:(void (^)(DOSCWebrtcRtcStatsReport * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getTransportStats(completionHandler:)")));
+- (void)getTransportStatsWithCompletionHandler:(void (^)(DOSCWebrtcRtcStatsReport * _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getTransportStats(completionHandler:)")));
 
 /**
  * @note This method converts instances of CancellationException to errors.
@@ -16378,7 +16388,7 @@ __attribute__((swift_name("Dyte_media_clientHiveUnifiedPlan")))
  * @note This method converts instances of CancellationException to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)getTransportStatsWithCompletionHandler:(void (^)(DOSCWebrtcRtcStatsReport * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getTransportStats(completionHandler:)")));
+- (void)getTransportStatsWithCompletionHandler:(void (^)(DOSCWebrtcRtcStatsReport * _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getTransportStats(completionHandler:)")));
 
 /**
  * @note This method converts instances of CancellationException to errors.
@@ -16691,7 +16701,7 @@ __attribute__((swift_name("Kotlinx_serialization_coreDecoder")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Dyte_media_clientHiveInternalConsumerOptions")))
 @interface DOSCDyte_media_clientHiveInternalConsumerOptions : DOSCDyte_media_clientHiveConsumerOptions
-- (instancetype)initWithId:(NSString * _Nullable)id producerId:(NSString *)producerId producingPeerId:(NSString *)producingPeerId kind:(DOSCWebrtcMediaStreamTrackKind *)kind paused:(DOSCBoolean * _Nullable)paused appData:(NSDictionary<NSString *, id> * _Nullable)appData localId:(NSString *)localId handler:(DOSCDyte_media_clientHiveHandlerInterface *)handler track:(DOSCWebrtcMediaStreamTrack * _Nullable)track reuseTrack:(DOSCBoolean * _Nullable)reuseTrack __attribute__((swift_name("init(id:producerId:producingPeerId:kind:paused:appData:localId:handler:track:reuseTrack:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString * _Nullable)id producerId:(NSString *)producerId producingPeerId:(NSString *)producingPeerId kind:(DOSCWebrtcMediaStreamTrackKind *)kind paused:(DOSCBoolean * _Nullable)paused appData:(NSDictionary<NSString *, id> * _Nullable)appData localId:(NSString *)localId handler:(DOSCDyte_media_clientHiveHandlerInterface *)handler track:(DOSCWebrtcMediaStreamTrack * _Nullable)track reuseTrack:(DOSCBoolean * _Nullable)reuseTrack ssrc:(DOSCLong * _Nullable)ssrc __attribute__((swift_name("init(id:producerId:producingPeerId:kind:paused:appData:localId:handler:track:reuseTrack:ssrc:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithId:(NSString * _Nullable)id producerId:(NSString *)producerId producingPeerId:(NSString *)producingPeerId kind:(DOSCWebrtcMediaStreamTrackKind *)kind paused:(DOSCBoolean * _Nullable)paused appData:(NSDictionary<NSString *, id> * _Nullable)appData __attribute__((swift_name("init(id:producerId:producingPeerId:kind:paused:appData:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (readonly) NSDictionary<NSString *, id> * _Nullable appData __attribute__((swift_name("appData")));
 @property (readonly) DOSCDyte_media_clientHiveHandlerInterface *handler __attribute__((swift_name("handler")));
@@ -16702,6 +16712,7 @@ __attribute__((swift_name("Dyte_media_clientHiveInternalConsumerOptions")))
 @property (readonly) NSString *producerId __attribute__((swift_name("producerId")));
 @property (readonly) NSString *producingPeerId __attribute__((swift_name("producingPeerId")));
 @property (readonly) DOSCBoolean * _Nullable reuseTrack __attribute__((swift_name("reuseTrack")));
+@property (readonly) DOSCLong * _Nullable ssrc __attribute__((swift_name("ssrc")));
 @property (readonly) DOSCWebrtcMediaStreamTrack * _Nullable track __attribute__((swift_name("track")));
 @end
 
@@ -16733,12 +16744,13 @@ __attribute__((swift_name("Dyte_media_clientHiveCodecOptions")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Dyte_media_clientHiveInternalProducerOptions")))
 @interface DOSCDyte_media_clientHiveInternalProducerOptions : DOSCBase
-- (instancetype)initWithId:(NSString *)id localId:(NSString *)localId track:(DOSCWebrtcMediaStreamTrack *)track stopTracks:(BOOL)stopTracks disableTrackOnPause:(BOOL)disableTrackOnPause zeroRtpOnPause:(BOOL)zeroRtpOnPause handler:(DOSCDyte_media_clientHiveHandlerInterface *)handler appData:(NSDictionary<NSString *, id> *)appData __attribute__((swift_name("init(id:localId:track:stopTracks:disableTrackOnPause:zeroRtpOnPause:handler:appData:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id localId:(NSString *)localId track:(DOSCWebrtcMediaStreamTrack *)track stopTracks:(BOOL)stopTracks disableTrackOnPause:(BOOL)disableTrackOnPause zeroRtpOnPause:(BOOL)zeroRtpOnPause handler:(DOSCDyte_media_clientHiveHandlerInterface *)handler appData:(NSDictionary<NSString *, id> *)appData ssrc:(DOSCLong * _Nullable)ssrc __attribute__((swift_name("init(id:localId:track:stopTracks:disableTrackOnPause:zeroRtpOnPause:handler:appData:ssrc:)"))) __attribute__((objc_designated_initializer));
 @property (readonly) NSDictionary<NSString *, id> *appData __attribute__((swift_name("appData")));
 @property (readonly) BOOL disableTrackOnPause __attribute__((swift_name("disableTrackOnPause")));
 @property (readonly) DOSCDyte_media_clientHiveHandlerInterface *handler __attribute__((swift_name("handler")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
 @property (readonly) NSString *localId __attribute__((swift_name("localId")));
+@property (readonly) DOSCLong * _Nullable ssrc __attribute__((swift_name("ssrc")));
 @property (readonly) BOOL stopTracks __attribute__((swift_name("stopTracks")));
 @property (readonly) DOSCWebrtcMediaStreamTrack *track __attribute__((swift_name("track")));
 @property (readonly) BOOL zeroRtpOnPause __attribute__((swift_name("zeroRtpOnPause")));
@@ -17334,9 +17346,11 @@ __attribute__((swift_name("Dyte_media_clientHiveHandlerSendOptions")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Dyte_media_clientHiveHandlerSendResult")))
 @interface DOSCDyte_media_clientHiveHandlerSendResult : DOSCDyte_media_clientHiveGenericHandlerResult
-- (instancetype)initWithOfferSdp:(DOSCWebrtcSessionDescription *)offerSdp callback:(id<DOSCKotlinSuspendFunction1>)callback __attribute__((swift_name("init(offerSdp:callback:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithOfferSdp:(DOSCWebrtcSessionDescription *)offerSdp callback:(id<DOSCKotlinSuspendFunction1>)callback ssrc:(DOSCLong * _Nullable)ssrc __attribute__((swift_name("init(offerSdp:callback:ssrc:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithOfferSdp:(DOSCWebrtcSessionDescription *)offerSdp callback:(id<DOSCKotlinSuspendFunction1>)callback __attribute__((swift_name("init(offerSdp:callback:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (readonly) id<DOSCKotlinSuspendFunction1> callback __attribute__((swift_name("callback")));
 @property (readonly) DOSCWebrtcSessionDescription *offerSdp __attribute__((swift_name("offerSdp")));
+@property (readonly) DOSCLong * _Nullable ssrc __attribute__((swift_name("ssrc")));
 @end
 
 __attribute__((objc_subclassing_restricted))
