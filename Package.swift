@@ -9,7 +9,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/dyte-in/DyteiOSSocketIO.git", revision: "0.1.3"),
-        .package(url: "https://github.com/jitsi/webrtc.git", from: "106.0.0")
+        .package(name: "WebRTC", url: "https://github.com/jitsi/webrtc.git", branch: "master")
     ],
     targets: [
         .binaryTarget(
