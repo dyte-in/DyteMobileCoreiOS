@@ -1885,6 +1885,7 @@ __attribute__((swift_name("IRoomNodeController")))
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)reconnectTransportTransport:(DOSCDyte_media_clientHiveTransport *)transport completionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("reconnectTransport(transport:completionHandler:)")));
+@property (readonly) BOOL joinedRoom __attribute__((swift_name("joinedRoom")));
 @end
 
 __attribute__((swift_name("ISelfController")))
@@ -1939,6 +1940,12 @@ __attribute__((swift_name("ISocketController")))
 - (void)addConnectionListenerListener:(id<DOSCSocketConnectionEventListener>)listener __attribute__((swift_name("addConnectionListener(listener:)")));
 - (void)addMessageEventListenerEvent:(DOSCInboundMeetingEventType *)event listener:(id<DOSCSocketMessageEventListener>)listener __attribute__((swift_name("addMessageEventListener(event:listener:)")));
 - (void)clear __attribute__((swift_name("clear()")));
+
+/**
+ * @note This method converts instances of CancellationException to errors.
+ * Other uncaught Kotlin exceptions are fatal.
+*/
+- (void)connectWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("connect(completionHandler:)")));
 - (void)disconnect __attribute__((swift_name("disconnect()")));
 - (void)removeConnectionListenerListener:(id<DOSCSocketConnectionEventListener>)listener __attribute__((swift_name("removeConnectionListener(listener:)")));
 - (void)removeMessageEventListenerEvent:(DOSCInboundMeetingEventType *)event listener:(id<DOSCSocketMessageEventListener>)listener __attribute__((swift_name("removeMessageEventListener(event:listener:)")));
@@ -8556,6 +8563,7 @@ __attribute__((swift_name("LiveStreamPermissions")))
 - (DOSCLiveStreamPermissions *)doCopyCanLiveStream:(BOOL)canLiveStream __attribute__((swift_name("doCopy(canLiveStream:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSDictionary<NSString *, id> *)toMap __attribute__((swift_name("toMap()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) BOOL canLiveStream __attribute__((swift_name("canLiveStream")));
 @end
@@ -8803,6 +8811,7 @@ __attribute__((swift_name("WaitingRoomPermissions")))
 - (DOSCWaitingRoomPermissions *)doCopyCanAcceptRequests:(BOOL)canAcceptRequests behaviour:(DOSCWaitingRoomType *)behaviour __attribute__((swift_name("doCopy(canAcceptRequests:behaviour:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSDictionary<NSString *, id> *)toMap __attribute__((swift_name("toMap()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) DOSCWaitingRoomType *behaviour __attribute__((swift_name("behaviour")));
 @property (readonly) BOOL canAcceptRequests __attribute__((swift_name("canAcceptRequests")));
