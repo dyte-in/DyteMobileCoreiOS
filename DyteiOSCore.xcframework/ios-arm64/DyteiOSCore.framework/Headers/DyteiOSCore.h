@@ -8452,7 +8452,7 @@ __attribute__((swift_name("WaitingRoomType")))
 @property (class, readonly) DOSCWaitingRoomType *skip __attribute__((swift_name("skip")));
 @property (class, readonly) DOSCWaitingRoomType *onAccept __attribute__((swift_name("onAccept")));
 @property (class, readonly) DOSCWaitingRoomType *skipOnAccept __attribute__((swift_name("skipOnAccept")));
-@property (class, readonly) DOSCWaitingRoomType *skipOnPrivilegedUserEntry __attribute__((swift_name("skipOnPrivilegedUserEntry")));
+@property (class, readonly) DOSCWaitingRoomType *onPrivilegedUserEntry __attribute__((swift_name("onPrivilegedUserEntry")));
 + (DOSCKotlinArray<DOSCWaitingRoomType *> *)values __attribute__((swift_name("values()")));
 @property (class, readonly) NSArray<DOSCWaitingRoomType *> *entries __attribute__((swift_name("entries")));
 @end
