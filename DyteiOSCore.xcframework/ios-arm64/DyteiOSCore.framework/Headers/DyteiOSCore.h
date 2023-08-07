@@ -1073,6 +1073,13 @@ __attribute__((swift_name("DyteEventType.OnNoActiveSpeaker")))
 @end
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("DyteEventType.OnParticipantRemovedFromStage")))
+@interface DOSCDyteEventTypeOnParticipantRemovedFromStage : DOSCDyteEventType
+- (instancetype)initWithPresentParticipant:(DOSCDyteJoinedMeetingParticipant *)presentParticipant __attribute__((swift_name("init(presentParticipant:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) DOSCDyteJoinedMeetingParticipant *presentParticipant __attribute__((swift_name("presentParticipant")));
+@end
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DyteEventType.OnParticipantsUpdate")))
 @interface DOSCDyteEventTypeOnParticipantsUpdate : DOSCDyteEventType
 - (instancetype)initWithParticipant:(DOSCDyteRoomParticipants *)participant __attribute__((swift_name("init(participant:)"))) __attribute__((objc_designated_initializer));
@@ -8876,6 +8883,7 @@ __attribute__((swift_name("DyteStageEventListener")))
 @protocol DOSCDyteStageEventListener
 @required
 - (void)onAddedToStage __attribute__((swift_name("onAddedToStage()")));
+- (void)onParticipantRemovedFromStageParticipant:(DOSCDyteJoinedMeetingParticipant *)participant __attribute__((swift_name("onParticipantRemovedFromStage(participant:)")));
 - (void)onPresentRequestAcceptedParticipant:(DOSCDyteJoinedMeetingParticipant *)participant __attribute__((swift_name("onPresentRequestAccepted(participant:)")));
 - (void)onPresentRequestAddedParticipant:(DOSCDyteJoinedMeetingParticipant *)participant __attribute__((swift_name("onPresentRequestAdded(participant:)")));
 - (void)onPresentRequestClosedParticipant:(DOSCDyteJoinedMeetingParticipant *)participant __attribute__((swift_name("onPresentRequestClosed(participant:)")));
