@@ -1603,6 +1603,7 @@ __attribute__((swift_name("IMetaController")))
 - (BOOL)isV2AuthToken __attribute__((swift_name("isV2AuthToken()")));
 - (BOOL)isVideoEnabled __attribute__((swift_name("isVideoEnabled()")));
 - (BOOL)isWebinar __attribute__((swift_name("isWebinar()")));
+- (NSString *)refreshPeerId __attribute__((swift_name("refreshPeerId()")));
 - (void)setIsHiveIsHive:(BOOL)isHive __attribute__((swift_name("setIsHive(isHive:)")));
 - (void)setMeetingStartedTimestampTimestamp:(NSString *)timestamp __attribute__((swift_name("setMeetingStartedTimestamp(timestamp:)")));
 - (void)setMeetingStatedTimeTime:(int64_t)time __attribute__((swift_name("setMeetingStatedTime(time:)")));
@@ -1893,6 +1894,7 @@ __attribute__((swift_name("ISocketController")))
 */
 - (void)connectWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("connect(completionHandler:)")));
 - (void)disconnect __attribute__((swift_name("disconnect()")));
+- (void)refreshUrlPeerId:(NSString *)peerId __attribute__((swift_name("refreshUrl(peerId:)")));
 - (void)removeConnectionListenerListener:(id<DOSCSocketConnectionEventListener>)listener __attribute__((swift_name("removeConnectionListener(listener:)")));
 - (void)removeMessageEventListenerEvent:(DOSCInboundMeetingEventType *)event listener:(id<DOSCSocketMessageEventListener>)listener __attribute__((swift_name("removeMessageEventListener(event:listener:)")));
 
@@ -3435,6 +3437,7 @@ __attribute__((swift_name("SocketService")))
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)disconnectWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("disconnect(completionHandler:)")));
+- (void)refreshUrlPeerId:(NSString *)peerId __attribute__((swift_name("refreshUrl(peerId:)")));
 - (void)removeConnectionStateListenerListener:(id<DOSCSocketServiceConnectionStateListener>)listener __attribute__((swift_name("removeConnectionStateListener(listener:)")));
 
 /**
