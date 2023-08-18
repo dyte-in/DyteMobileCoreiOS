@@ -16,17 +16,17 @@ let package = Package(
         .binaryTarget(
             name: "DyteiOSCore",
             url: "https://github.com/dyte-in/DyteMobileCoreiOS/archive/refs/tags/0.8.0.zip",
-            checksum: "c0fa2f2c4e203fc27a069980e2435e76a5b1a14356e47c37d79dc74dda70b2be"
+            checksum: "a457d0d297c14f62a3f7b010117df8de94be9165912f7aecc142f1323bd51c00"
         ),
         .binaryTarget(
             name: "DyteiOSSocketIO",
             url: "https://github.com/dyte-in/DyteiOSSocketIO/archive/refs/tags/0.1.6.zip",
-            checksum: "ca0ffe1930f5d5f472abb4966b2b814489b463399fb7aa757b2ab8bd3570048e"
+            checksum: "860c432f25010e318d010163d83bd689d7a890dcdcd4cee5391682020e412eef"
         ),
         .binaryTarget(
             name: "Starscream",
             url: "https://github.com/dyte-in/DyteStarscream/archive/refs/tags/0.0.3.zip",
-            checksum: "8aa8a8078b74aa4dcb86bf27ce2b46ef51b5e5f731226cd30fbd83ac5d1e633f"
+            checksum: "52bdad383b4405d4bbef3dcb4ebec9c92f5c602d9bf3d9d137e04ad59b082326"
         )
     ]
 )
