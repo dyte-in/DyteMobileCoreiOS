@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "DyteiOSCore"
-s.version      = "0.8.4"
+s.version      = "0.8.5"
 s.summary      = "Beta release for DyteiOSCore SDK which provides Audio/Video calling without UI"
 s.description  = "Logically separate the responsibility of video calling logic and UI. This means decoupling, speed, performance, and control over your RTC!"
 s.homepage     = "https://dyte.io/"
@@ -12,5 +12,5 @@ s.platform = :ios
 s.swift_version = "5.0"
 s.ios.deployment_target  = '13.0'
 s.dependency 'DyteiOSSocketIO', '~> 0.1.6'
-s.dependency 'JitsiWebRTC', '~> 106.0.0'
+s.dependency 'WebRTC-SDK', '~> 114.5735.02'
 end
