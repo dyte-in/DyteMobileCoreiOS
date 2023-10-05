@@ -10,7 +10,6 @@ Pod::Spec.new do |spec|
     spec.authors                  = { 'Dyte' => 'dev@dyte.io' }
     spec.license                  = { :type => 'MIT', :file => 'LICENSE' }
     spec.summary                  = "Dyte's Audio/Video SDKs"
-    spec.vendored_frameworks      = 'DyteiOSCore.xcframework'
     spec.platform = :ios
     spec.swift_version = "5.0"
     spec.ios.deployment_target = '13.0'
