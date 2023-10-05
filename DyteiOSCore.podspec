@@ -1,16 +1,18 @@
-Pod::Spec.new do |s|
-s.name         = "DyteiOSCore"
-s.version      = "0.8.6"
-s.summary      = "Beta release for DyteiOSCore SDK which provides Audio/Video calling without UI"
-s.description  = "Logically separate the responsibility of video calling logic and UI. This means decoupling, speed, performance, and control over your RTC!"
-s.homepage     = "https://dyte.io/"
-s.license      = { :type => 'MIT', :file => 'LICENSE' }
-s.author           = { 'Dyte' => 'dev@dyte.io' }
-s.source = { :git => "https://github.com/dyte-in/DyteMobileCoreiOS.git", :tag => s.version.to_s }
-s.vendored_frameworks = "DyteiOSCore.xcframework"
-s.platform = :ios
-s.swift_version = "5.0"
-s.ios.deployment_target  = '13.0'
-s.dependency 'DyteiOSSocketIO', '~> 0.1.6'
-s.dependency 'WebRTC-SDK', '~> 114.5735.02'
+Pod::Spec.new do |spec|
+    spec.name                     = 'DyteiOSCore'
+    spec.version                  = '1.23.0'
+    spec.homepage                 = 'https://dyte.io'
+    spec.source                   = { 
+                                      :http => 'https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteiOSCore-1.23.0-3bd60092-6591-4785-91f3-b6778c8e479a.xcframework.zip',
+                                      :type => 'zip',
+                                      :headers => ['Accept: application/octet-stream']
+                                    }
+    spec.authors                  = { 'Dyte' => 'dev@dyte.io' }
+    spec.license                  = { :type => 'MIT', :file => 'LICENSE' }
+    spec.summary                  = "Dyte's Audio/Video SDKs"
+    spec.vendored_frameworks      = 'DyteiOSCore.xcframework'
+    spec.platform = :ios
+    spec.swift_version = "5.0"
+    spec.ios.deployment_target = '13.0'
+    spec.dependency 'WebRTC-SDK', '114.5735.02'
 end
