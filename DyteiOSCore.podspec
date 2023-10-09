@@ -1,9 +1,9 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'DyteiOSCore'
-    spec.version                  = '1.23.0'
+    spec.version                  = '1.23.1'
     spec.homepage                 = 'https://dyte.io'
     spec.source                   = { 
-                                      :http => 'https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteiOSCore-1.23.0-3bd60092-6591-4785-91f3-b6778c8e479a.xcframework.zip',
+                                      :http => 'https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteiOSCore-1.23.1-c54fed48-9068-4354-abf2-0d983ee14282.xcframework.zip',
                                       :type => 'zip',
                                       :headers => ['Accept: application/octet-stream']
                                     }
