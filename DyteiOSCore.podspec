@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'DyteiOSCore'
-    spec.version                  = '1.23.2'
+    spec.version                  = '1.25.0'
     spec.homepage                 = 'https://dyte.io'
     spec.source                   = { :git => "https://github.com/dyte-in/DyteMobileCoreiOS.git", :tag => spec.version.to_s }
     spec.authors                  = { 'Dyte' => 'dev@dyte.io' }
