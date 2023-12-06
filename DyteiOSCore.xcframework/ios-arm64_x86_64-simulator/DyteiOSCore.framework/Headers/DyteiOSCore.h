@@ -1632,6 +1632,7 @@ __attribute__((swift_name("InternalEvents")))
 @required
 - (void)connectMedia __attribute__((swift_name("connectMedia()")));
 - (void)connectToRoomNode __attribute__((swift_name("connectToRoomNode()")));
+- (void)disconnectFromRoomNode __attribute__((swift_name("disconnectFromRoomNode()")));
 - (void)disconnectMedia __attribute__((swift_name("disconnectMedia()")));
 - (void)onRoomJoinedWebSocketJoinRoomModel:(DOSCWebSocketJoinRoomModel *)webSocketJoinRoomModel __attribute__((swift_name("onRoomJoined(webSocketJoinRoomModel:)")));
 - (void)onWaitlistEntryAccepted __attribute__((swift_name("onWaitlistEntryAccepted()")));
@@ -6108,15 +6109,15 @@ __attribute__((swift_name("ParticipantChatPreset.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ParticipantData")))
 @interface DOSCParticipantData : DOSCBase
-- (instancetype)initWithId:(NSString *)id name:(NSString *)name clientSpecificId:(NSString *)clientSpecificId organizationId:(NSString *)organizationId picture:(NSString * _Nullable)picture __attribute__((swift_name("init(id:name:clientSpecificId:organizationId:picture:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id name:(NSString * _Nullable)name clientSpecificId:(NSString *)clientSpecificId organizationId:(NSString *)organizationId picture:(NSString * _Nullable)picture __attribute__((swift_name("init(id:name:clientSpecificId:organizationId:picture:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) DOSCParticipantDataCompanion *companion __attribute__((swift_name("companion")));
-- (DOSCParticipantData *)doCopyId:(NSString *)id name:(NSString *)name clientSpecificId:(NSString *)clientSpecificId organizationId:(NSString *)organizationId picture:(NSString * _Nullable)picture __attribute__((swift_name("doCopy(id:name:clientSpecificId:organizationId:picture:)")));
+- (DOSCParticipantData *)doCopyId:(NSString *)id name:(NSString * _Nullable)name clientSpecificId:(NSString *)clientSpecificId organizationId:(NSString *)organizationId picture:(NSString * _Nullable)picture __attribute__((swift_name("doCopy(id:name:clientSpecificId:organizationId:picture:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSString *clientSpecificId __attribute__((swift_name("clientSpecificId")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
-@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) NSString * _Nullable name __attribute__((swift_name("name")));
 @property (readonly) NSString *organizationId __attribute__((swift_name("organizationId")));
 @property (readonly) NSString * _Nullable picture __attribute__((swift_name("picture")));
 @end
