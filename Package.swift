@@ -2,8 +2,8 @@
 import PackageDescription
 
 // BEGIN KMMBRIDGE VARIABLES BLOCK (do not edit)
-let remoteKotlinUrl = "https://github.com/dyte-in/DyteMobileCoreiOS/archive/refs/tags/1.25.3.zip"
-let remoteKotlinChecksum = "9035d35f85523d3ed873217c185e6a6c200c18f13eb4156f017cc1460ff5d6f1"
+let remoteKotlinUrl = "https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteiOSCore-1.26.1-6c882791-b1f3-45f8-b88d-4eb607850153.xcframework.zip"
+let remoteKotlinChecksum = "1497144e1d2045f973656d4068752366db5c653aab459606fcd13f7c3b42cdb2"
 let packageName = "DyteiOSCore"
 // END KMMBRIDGE BLOCK
 
@@ -11,7 +11,7 @@ let package = Package(
     name: "DyteMobileCoreiOS",
     platforms: [.iOS(.v13)],
     products: [
-        .library(name: packageName, targets: [packageName, "WebRTC"])
+        .library(name: packageName, targets: [packageName, "WebRTC"]),
     ],
     targets: [
         .binaryTarget(
@@ -23,6 +23,7 @@ let package = Package(
             name: packageName,
             url: remoteKotlinUrl,
             checksum: remoteKotlinChecksum
-        )
+        ),
     ]
 )
+
