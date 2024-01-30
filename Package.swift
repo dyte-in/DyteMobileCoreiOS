@@ -11,7 +11,7 @@ let package = Package(
     name: "DyteMobileCoreiOS",
     platforms: [.iOS(.v13)],
     products: [
-        .library(name: packageName, targets: [packageName, "WebRTC"]),
+        .library(name: packageName, targets: [packageName, "DyteWebRTC"]),
     ],
     targets: [
         .binaryTarget(
