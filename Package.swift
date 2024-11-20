@@ -2,8 +2,8 @@
 import PackageDescription
 
 // BEGIN KMMBRIDGE VARIABLES BLOCK (do not edit)
-let remoteKotlinUrl = "https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteiOSCore-1.39.0-d15df9f9-0b50-4948-a2af-37784b304b61.xcframework.zip"
-let remoteKotlinChecksum = "19946959340a927ea5413b9b2cea88dc60a644459ae4bb70845bb0f6ccdf2e9e"
+let remoteKotlinUrl = "https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteiOSCore-2.0.0-0b00357b-51c2-432b-a931-c8819cbd18a9.xcframework.zip"
+let remoteKotlinChecksum = "0342ba718f15a3bc722b1ca0559a9c8df5d65c346d97f0bbc022b48367b55575"
 let packageName = "DyteiOSCore"
 // END KMMBRIDGE BLOCK
 
