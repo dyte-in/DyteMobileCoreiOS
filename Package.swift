@@ -12,6 +12,7 @@ let package = Package(
     platforms: [.iOS(.v13)],
     products: [
         .library(name: packageName, targets: [packageName, "DyteWebRTC"]),
+        .library(name: "DyteWebRTC", targets: ["DyteWebRTC"]),
     ],
     targets: [
         .binaryTarget(
@@ -26,4 +27,3 @@ let package = Package(
         ),
     ]
 )
-
